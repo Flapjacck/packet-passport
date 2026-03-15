@@ -10,6 +10,7 @@ class Graph {
     int n;
     int[][] adj;
 
+    @SuppressWarnings("resource")
     Graph(int n) {
         this.n = n;
         this.adj = new int[n][n];
@@ -19,5 +20,22 @@ class Graph {
                 adj[i][j] = sc.nextInt();
             }
         }
+    }
+
+    // Create a graph from an existing adjacency matrix (used for transpose).
+    private Graph(int n, int[][] adj) {
+        this.n = n;
+        this.adj = adj;
+    }
+
+    // Return a new graph with every edge reversed.
+    Graph transpose() {
+        int[][] t = new int[n][n];
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                t[j][i] = adj[i][j];
+            }
+        }
+        return new Graph(n, t);
     }
 }
