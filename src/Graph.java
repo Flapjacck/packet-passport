@@ -17,6 +17,20 @@ class Graph {
     static final int NO_EDGE = -1;
 
     /**
+     * Construct a graph from a provided Scanner.
+     * Expects exactly n*n integers following.
+     */
+    Graph(int n, Scanner sc) {
+        this.n = n;
+        this.adj = new int[n][n];
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                adj[i][j] = sc.nextInt();
+            }
+        }
+    }
+
+    /**
      * Construct a graph from standard input.
      * Expects exactly n*n integers following the initial n.
      */
@@ -32,9 +46,9 @@ class Graph {
         }
     }
 
-    // Create a graph from an existing adjacency matrix (used for transpose and
-    // tests).
-    private Graph(int n, int[][] adj) {
+    // Create a graph from an existing adjacency matrix (used for transpose, tests,
+    // and Graph instantiation).
+    Graph(int n, int[][] adj) {
         this.n = n;
         this.adj = adj;
     }
