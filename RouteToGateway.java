@@ -289,13 +289,16 @@ class ForwardingTable {
         int shortestDist = forward.distances[gateway];
 
         for (int neighbor : graph.outgoingNeighbors(source)) {
-            if (neighbor == source) continue; // Skip self-loops
+            if (neighbor == source)
+                continue; // Skip self-loops
 
             int edgeWeight = graph.weight(source, neighbor);
-            if (edgeWeight == Graph.NO_EDGE) continue;
+            if (edgeWeight == Graph.NO_EDGE)
+                continue;
 
             int distFromNeighbor = backward.get(gateway).distances[neighbor];
-            if (distFromNeighbor == Integer.MAX_VALUE) continue;
+            if (distFromNeighbor == Integer.MAX_VALUE)
+                continue;
 
             if (edgeWeight + distFromNeighbor == shortestDist) {
                 nextHopsSet.add(neighbor);
@@ -323,13 +326,16 @@ class ForwardingTable {
         }
 
         for (int neighbor : graph.outgoingNeighbors(source)) {
-            if (neighbor == source) continue; // Skip self-loops
+            if (neighbor == source)
+                continue; // Skip self-loops
 
             int edgeWeight = graph.weight(source, neighbor);
-            if (edgeWeight == Graph.NO_EDGE) continue;
+            if (edgeWeight == Graph.NO_EDGE)
+                continue;
 
             int distFromNeighborToSA = backwardFromSA.distances[neighbor];
-            if (distFromNeighborToSA == Integer.MAX_VALUE) continue;
+            if (distFromNeighborToSA == Integer.MAX_VALUE)
+                continue;
 
             if (edgeWeight + distFromNeighborToSA == shortestDistToSA) {
                 nextHopsSet.add(neighbor);
