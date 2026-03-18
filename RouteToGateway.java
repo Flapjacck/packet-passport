@@ -185,7 +185,7 @@ class Dijkstra {
 }
 
 /*
- * Builds and prints forwarding tables for non-gateway routers.  Uses the
+ * Builds and prints forwarding tables for non-gateway routers. Uses the
  * distance/predecessor information from the Dijkstra runs to determine next
  * hop(s) and cost to each gateway, respecting the SA policy.
  *
@@ -283,38 +283,25 @@ class ForwardingTable {
      * Build next hop(s) for a gateway when source == SA.
      * Returns immediate successors of source that are on the shortest path to
      * gateway.
-     * Uses backward Dijkstra to determine which neighbors maintain the shortest
-     * path.
      */
     private List<Integer> buildDirectNextHops(int gateway) {
-        // For each neighbor N of source, check if: edge(source, N) + distance(N to
-        // gateway) == distance(source to gateway)
-        // Backward distances give us distance from each node TO the gateway (in
-        // original graph direction)
         Set<Integer> nextHopsSet = new LinkedHashSet<>();
         int shortestDist = forward.distances[gateway];
 
-        // Check all potential neighbors (all nodes with edges from source)
         for (int neighbor : graph.outgoingNeighbors(source)) {
-            if (neighbor == source)
-                continue; // Skip self-loops
+            if (neighbor == source) continue; // Skip self-loops
 
             int edgeWeight = graph.weight(source, neighbor);
-            if (edgeWeight == Graph.NO_EDGE)
-                continue;
+            if (edgeWeight == Graph.NO_EDGE) continue;
 
-            // Distance from neighbor to gateway via shortest paths
             int distFromNeighbor = backward.get(gateway).distances[neighbor];
-            if (distFromNeighbor == Integer.MAX_VALUE)
-                continue; // Unreachable
+            if (distFromNeighbor == Integer.MAX_VALUE) continue;
 
-            int totalDist = edgeWeight + distFromNeighbor;
-            if (totalDist == shortestDist) {
+            if (edgeWeight + distFromNeighbor == shortestDist) {
                 nextHopsSet.add(neighbor);
             }
         }
 
-        // Convert to sorted list for consistent output
         List<Integer> hops = new ArrayList<>(nextHopsSet);
         Collections.sort(hops);
         return hops;
@@ -322,43 +309,33 @@ class ForwardingTable {
 
     /**
      * Build next hop(s) for a gateway when source != SA.
-     * Returns all immediate neighbors of source that are on a shortest path to SA.
+     * Returns all immediate successors of source that are on a shortest path to SA.
+     * A neighbor N is valid if: edge(source,N) + dist(N to SA) = dist(source to SA)
      * Supports bonus: multiple equal-cost next hops.
      */
     private List<Integer> buildNextHopsForGateway(int gateway) {
-        // The next hop is a neighbor N of source such that:
-        // edge(source, N) + distance(N to SA) == distance(source to SA)
-        // This ensures we follow a shortest path towards SA.
         Set<Integer> nextHopsSet = new LinkedHashSet<>();
         int shortestDistToSA = forward.distances[saIndex];
 
-        // Get backward results from SA (distances to SA in original graph)
         Dijkstra.Result backwardFromSA = backward.get(saIndex);
         if (backwardFromSA == null) {
-            return new ArrayList<>(); // SA not in backward map (shouldn't happen)
+            return new ArrayList<>();
         }
 
-        // Check all neighbors of source
         for (int neighbor : graph.outgoingNeighbors(source)) {
-            if (neighbor == source)
-                continue; // Skip self-loops
+            if (neighbor == source) continue; // Skip self-loops
 
             int edgeWeight = graph.weight(source, neighbor);
-            if (edgeWeight == Graph.NO_EDGE)
-                continue;
+            if (edgeWeight == Graph.NO_EDGE) continue;
 
-            // Distance from neighbor to SA (via shortest path in original)
             int distFromNeighborToSA = backwardFromSA.distances[neighbor];
-            if (distFromNeighborToSA == Integer.MAX_VALUE)
-                continue; // Unreachable
+            if (distFromNeighborToSA == Integer.MAX_VALUE) continue;
 
-            int totalDist = edgeWeight + distFromNeighborToSA;
-            if (totalDist == shortestDistToSA) {
+            if (edgeWeight + distFromNeighborToSA == shortestDistToSA) {
                 nextHopsSet.add(neighbor);
             }
         }
 
-        // Convert to sorted list for consistent output
         List<Integer> hops = new ArrayList<>(nextHopsSet);
         Collections.sort(hops);
         return hops;
