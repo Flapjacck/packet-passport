@@ -1,0 +1,79 @@
+name: Test RouteToGateway
+
+on:
+  workflow_dispatch
+
+jobs:
+  test:
+    name: Run Assignment Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '11'
+
+      - name: Compile RouteToGateway.java
+        run: |
+          echo "Compiling RouteToGateway.java..."
+          javac RouteToGateway.java
+          if [ $? -eq 0 ]; then
+            echo "Compilation successful"
+          else
+            echo "Compilation failed"
+            exit 1
+          fi
+
+      - name: Run test suite
+        run: |
+          echo ""
+          echo "Running test cases from testing suite..."
+          echo ""
+          
+          cd testing
+          TEST_COUNT=0
+          PASSED=0
+          
+          for test_file in test_*.txt; do
+            if [ -f "$test_file" ]; then
+              TEST_COUNT=$((TEST_COUNT + 1))
+              echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+              echo "TEST CASE: $test_file"
+              echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+              echo ""
+              echo "   INPUT:"
+              echo "────────────────────────────────────────────────"
+              cat "$test_file"
+              echo ""
+              echo "   OUTPUT:"
+              echo "────────────────────────────────────────────────"
+              java RouteToGateway < "$test_file"
+              EXIT_CODE=$?
+              echo "────────────────────────────────────────────────"
+              
+              if [ $EXIT_CODE -eq 0 ]; then
+                echo "✅ Test passed"
+                PASSED=$((PASSED + 1))
+              else
+                echo "⚠️  Exit code: $EXIT_CODE"
+              fi
+              echo ""
+            fi
+          done
+          
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo "TEST SUMMARY"
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo "Total tests: $TEST_COUNT"
+          echo "Passed: $PASSED"
+          echo ""
+          
+          if [ $TEST_COUNT -eq 0 ]; then
+            echo "❌ No test files found"
+            exit 1
+          fi
