@@ -48,4 +48,8 @@ Below is a Graphviz visualization of a sample AS topology. The SVG shows the dir
 
 ![Policy‑based routing example](graphviz.svg)
 
+## Testing
+
+Testing suite is provided from [Professor's repository](https://github.com/MustafaDaraghmeh/RouteToGateway-TestingEnvironment). I have turned the testing suite into a GitHub Action workflow that you can see [the output here](https://github.com/Flapjacck/packet-passport/actions/runs/23307134467/job/67784282341).
+
 ---
