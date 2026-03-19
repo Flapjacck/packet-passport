@@ -1,0 +1,136 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="418pt" height="367pt" viewBox="0.00 0.00 418.00 367.00">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 363.13)">
+<title>PolicyBasedRouting</title>
+<polygon fill="#f8f8f8" stroke="none" points="-4,4 -4,-363.13 414.21,-363.13 414.21,4 -4,4"/>
+<!-- r1 -->
+<g id="node1" class="node">
+<title>r1</title>
+<ellipse fill="#e8f8e8" stroke="#4a9d4a" cx="21.6" cy="-179.57" rx="21.6" ry="21.6"/>
+<text xml:space="preserve" text-anchor="middle" x="21.6" y="-176.57" font-family="Helvetica,sans-Serif" font-size="10.00">R1</text>
+</g>
+<!-- r2 -->
+<g id="node2" class="node">
+<title>r2</title>
+<ellipse fill="#e8f8e8" stroke="#4a9d4a" cx="104.11" cy="-262.07" rx="21.6" ry="21.6"/>
+<text xml:space="preserve" text-anchor="middle" x="104.11" y="-259.07" font-family="Helvetica,sans-Serif" font-size="10.00">R2</text>
+</g>
+<!-- r1&#45;&gt;r2 -->
+<g id="edge1" class="edge">
+<title>r1-&gt;r2</title>
+<path fill="none" stroke="#666666" stroke-width="1.5" d="M32.94,-198.49C44.18,-211.9 61.61,-229.7 76.46,-243.11"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.5" points="73.74,-245.39 83.57,-249.33 78.34,-240.11 73.74,-245.39"/>
+<text xml:space="preserve" text-anchor="middle" x="53.54" y="-228.25" font-family="Times,serif" font-size="9.00">10</text>
+</g>
+<!-- r3 -->
+<g id="node3" class="node">
+<title>r3</title>
+<ellipse fill="#e8f8e8" stroke="#4a9d4a" cx="104.11" cy="-97.06" rx="21.6" ry="21.6"/>
+<text xml:space="preserve" text-anchor="middle" x="104.11" y="-94.06" font-family="Helvetica,sans-Serif" font-size="10.00">R3</text>
+</g>
+<!-- r1&#45;&gt;r3 -->
+<g id="edge3" class="edge">
+<title>r1-&gt;r3</title>
+<path fill="none" stroke="#666666" stroke-width="1.5" d="M40.53,-168.23C53.94,-156.98 71.74,-139.55 85.15,-124.71"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.5" points="87.42,-127.43 91.36,-117.59 82.15,-122.82 87.42,-127.43"/>
+<text xml:space="preserve" text-anchor="middle" x="65.33" y="-145.83" font-family="Times,serif" font-size="9.00">3</text>
+</g>
+<!-- r2&#45;&gt;r1 -->
+<g id="edge2" class="edge">
+<title>r2-&gt;r1</title>
+<path fill="none" stroke="#666666" stroke-width="1.5" d="M92.77,-243.15C81.52,-229.73 64.09,-211.93 49.25,-198.52"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.5" points="51.97,-196.25 42.13,-192.31 47.36,-201.52 51.97,-196.25"/>
+<text xml:space="preserve" text-anchor="middle" x="65.42" y="-218.79" font-family="Times,serif" font-size="9.00">5</text>
+</g>
+<!-- r2&#45;&gt;r3 -->
+<g id="edge5" class="edge">
+<title>r2-&gt;r3</title>
+<path fill="none" stroke="#666666" stroke-width="1.5" d="M112.2,-241.71C132.83,-189.13 134.3,-175.84 116.61,-128.86"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.5" points="119.95,-127.78 113.08,-119.71 113.41,-130.3 119.95,-127.78"/>
+<text xml:space="preserve" text-anchor="middle" x="126.61" y="-182.2" font-family="Times,serif" font-size="9.00">2</text>
+</g>
+<!-- sa -->
+<g id="node4" class="node">
+<title>sa</title>
+<polygon fill="#fff8e8" stroke="#d4a04f" stroke-width="2.5" points="186.61,-197.57 157.81,-179.57 186.61,-161.57 215.41,-179.57 186.61,-197.57"/>
+<text xml:space="preserve" text-anchor="middle" x="186.61" y="-176.57" font-family="Helvetica,sans-Serif" font-size="10.00">SA</text>
+</g>
+<!-- r2&#45;&gt;sa -->
+<g id="edge7" class="edge">
+<title>r2-&gt;sa</title>
+<path fill="none" stroke="#666666" stroke-width="1.5" d="M117.8,-245.04C127.76,-233.24 137.19,-224.24 165.36,-198.75"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.5" points="167.51,-201.52 172.58,-192.22 162.82,-196.33 167.51,-201.52"/>
+<text xml:space="preserve" text-anchor="middle" x="142.92" y="-219.88" font-family="Times,serif" font-size="9.00">6</text>
+</g>
+<!-- r3&#45;&gt;r1 -->
+<g id="edge4" class="edge">
+<title>r3-&gt;r1</title>
+<path fill="none" stroke="#666666" stroke-width="1.5" d="M85.18,-108.4C71.77,-119.64 53.97,-137.07 40.56,-151.92"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.5" points="38.28,-149.2 34.35,-159.03 43.56,-153.8 38.28,-149.2"/>
+<text xml:space="preserve" text-anchor="middle" x="55.87" y="-136.2" font-family="Times,serif" font-size="9.00">8</text>
+</g>
+<!-- r3&#45;&gt;sa -->
+<g id="edge6" class="edge">
+<title>r3-&gt;sa</title>
+<path fill="none" stroke="#666666" stroke-width="1.5" d="M117.8,-114.1C127.76,-125.89 137.19,-134.9 165.36,-160.38"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.5" points="162.82,-162.8 172.58,-166.91 167.51,-157.61 162.82,-162.8"/>
+<text xml:space="preserve" text-anchor="middle" x="142.92" y="-144.65" font-family="Times,serif" font-size="9.00">4</text>
+</g>
+<!-- g1 -->
+<g id="node5" class="node">
+<title>g1</title>
+<polygon fill="#f8e8e8" stroke="#a44a4a" stroke-width="2.5" points="284.43,-110.44 234.03,-110.44 234.03,-67.24 284.43,-67.24 284.43,-110.44"/>
+<text xml:space="preserve" text-anchor="middle" x="259.23" y="-85.84" font-family="Helvetica,sans-Serif" font-size="10.00">GW1</text>
+</g>
+<!-- sa&#45;&gt;g1 -->
+<g id="edge8" class="edge">
+<title>sa-&gt;g1</title>
+<path fill="none" stroke="#666666" stroke-width="1.5" d="M195.65,-166.06C210.53,-143.84 219.57,-130.56 226.88,-121.06"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.5" points="229.53,-123.35 233.18,-113.41 224.12,-118.9 229.53,-123.35"/>
+<text xml:space="preserve" text-anchor="middle" x="212.32" y="-140.81" font-family="Times,serif" font-size="9.00">5</text>
+</g>
+<!-- g2 -->
+<g id="node6" class="node">
+<title>g2</title>
+<polygon fill="#f8e8e8" stroke="#a44a4a" stroke-width="2.5" points="284.43,-291.89 234.03,-291.89 234.03,-248.69 284.43,-248.69 284.43,-291.89"/>
+<text xml:space="preserve" text-anchor="middle" x="259.23" y="-267.29" font-family="Helvetica,sans-Serif" font-size="10.00">GW2</text>
+</g>
+<!-- sa&#45;&gt;g2 -->
+<g id="edge9" class="edge">
+<title>sa-&gt;g2</title>
+<path fill="none" stroke="#666666" stroke-width="1.5" d="M195.65,-193.07C210.53,-215.29 219.57,-228.57 226.88,-238.07"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="1.5" points="224.12,-240.23 233.18,-245.72 229.53,-235.78 224.12,-240.23"/>
+<text xml:space="preserve" text-anchor="middle" x="212.32" y="-223.72" font-family="Times,serif" font-size="9.00">7</text>
+</g>
+<!-- ext1 -->
+<g id="node7" class="node">
+<title>ext1</title>
+<polygon fill="#e8e8f8" stroke="#4a4a9d" points="410.21,-43.2 338.21,-43.2 338.21,0 410.21,0 410.21,-43.2"/>
+<text xml:space="preserve" text-anchor="middle" x="374.21" y="-24.6" font-family="Helvetica,sans-Serif" font-size="10.00">Remote</text>
+<text xml:space="preserve" text-anchor="middle" x="374.21" y="-12.6" font-family="Helvetica,sans-Serif" font-size="10.00">Network A</text>
+</g>
+<!-- g1&#45;&gt;ext1 -->
+<g id="edge10" class="edge">
+<title>g1-&gt;ext1</title>
+<path fill="none" stroke="#999999" stroke-width="1.5" d="M285.51,-70.22C304.7,-56.68 317.16,-48.14 327.21,-42.06"/>
+<polygon fill="#999999" stroke="#999999" stroke-width="1.5" points="328.79,-45.18 335.78,-37.22 325.35,-39.08 328.79,-45.18"/>
+</g>
+<!-- ext2 -->
+<g id="node8" class="node">
+<title>ext2</title>
+<polygon fill="#e8e8f8" stroke="#4a4a9d" points="410.21,-359.13 338.21,-359.13 338.21,-315.93 410.21,-315.93 410.21,-359.13"/>
+<text xml:space="preserve" text-anchor="middle" x="374.21" y="-340.53" font-family="Helvetica,sans-Serif" font-size="10.00">Remote</text>
+<text xml:space="preserve" text-anchor="middle" x="374.21" y="-328.53" font-family="Helvetica,sans-Serif" font-size="10.00">Network B</text>
+</g>
+<!-- g2&#45;&gt;ext2 -->
+<g id="edge11" class="edge">
+<title>g2-&gt;ext2</title>
+<path fill="none" stroke="#999999" stroke-width="1.5" d="M285.51,-288.91C304.7,-302.45 317.16,-310.99 327.21,-317.08"/>
+<polygon fill="#999999" stroke="#999999" stroke-width="1.5" points="325.35,-320.05 335.78,-321.91 328.79,-313.95 325.35,-320.05"/>
+</g>
+<!-- legend -->
+<g id="node9" class="node">
+<title>legend</title>
+<text xml:space="preserve" text-anchor="middle" x="341.11" y="-200.27" font-family="Helvetica,sans-Serif" font-size="11.00">Policy: R1→SA→GW1</text>
+</g>
+</g>
+</svg>
