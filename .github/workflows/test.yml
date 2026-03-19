@@ -35,15 +35,15 @@ jobs:
           echo "Running test cases from testing suite..."
           echo ""
           
-          cd testing
           TEST_COUNT=0
           PASSED=0
           
-          for test_file in test_*.txt; do
+          for test_file in testing/test_*.txt; do
             if [ -f "$test_file" ]; then
               TEST_COUNT=$((TEST_COUNT + 1))
+              FILENAME=$(basename "$test_file")
               echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-              echo "TEST CASE: $test_file"
+              echo "TEST CASE: $FILENAME"
               echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
               echo ""
               echo "   INPUT:"
@@ -52,7 +52,7 @@ jobs:
               echo ""
               echo "   OUTPUT:"
               echo "────────────────────────────────────────────────"
-              java RouteToGateway < "$test_file"
+              java -cp . RouteToGateway < "$test_file"
               EXIT_CODE=$?
               echo "────────────────────────────────────────────────"
               
